@@ -9,7 +9,7 @@ if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/evmc/.git)
 endif()
 
 option(BUILD_SHARED_LIBS "Build evmone as a shared library" ON)
-option(EVMONE_TESTING "Build tests and test tools" OFF)
+option(EVMONE_TESTING "Build tests and test tools" ON)
 option(EVMONE_FUZZING "Instrument libraries and build fuzzing tools" OFF)
 
 include(cmake/cable/bootstrap.cmake)
@@ -40,7 +40,7 @@ hunter_add_package(ethash)
 find_package(ethash CONFIG REQUIRED)
 
 option(EVMC_TOOLS "Build EVMC test tools" ${EVMONE_TESTING})
-option(EVMC_INSTALL "Install EVMC" OFF)
+option(EVMC_INSTALL "Install EVMC" ON)
 add_subdirectory(evmc)
 
 cable_configure_compiler(NO_STACK_PROTECTION)
