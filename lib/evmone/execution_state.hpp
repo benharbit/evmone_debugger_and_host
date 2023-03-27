@@ -131,6 +131,7 @@ public:
     evmc::HostContext host;
     evmc_revision rev = {};
     bytes return_data;
+    std::vector<bytes_view> codes;
 
     /// Reference to original EVM code section.
     /// For legacy code this is a reference to entire original code.

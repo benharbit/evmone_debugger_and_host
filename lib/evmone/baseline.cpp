@@ -205,6 +205,7 @@ template <evmc_opcode Op>
         state.status = status;
         return {nullptr, pos.stack_top};
     }
+    state.original_code.;
     const auto new_pos = invoke(instr::core::impl<Op>, pos, state);
     const auto new_stack_top = pos.stack_top + instr::traits[Op].stack_height_change;
     return {new_pos, new_stack_top};
@@ -214,7 +215,8 @@ template <evmc_opcode Op>
 /// Implementation of a generic instruction "case".
 #define DISPATCH_CASE(OPCODE)                                                            \
     case OPCODE:                                                                         \
-        ASM_COMMENT(OPCODE);                                                             \
+        ASM_COMMENT(OPCODE);   
+        std::cout<<OPCODE<<std::endl;                                                          \
                                                                                          \
         if (const auto next = invoke<OPCODE>(cost_table, stack_bottom, position, state); \
             next.code_it == nullptr)                                                     \
@@ -224,7 +226,8 @@ template <evmc_opcode Op>
         else                                                                             \
         {                                                                                \
             /* Update current position only when no error,                               \
-               this improves compiler optimization. */                                   \
+               this improves compiler optimization. */     
+                                             \
             position = next;                                                             \
         }                                                                                \
         break

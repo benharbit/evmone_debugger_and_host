@@ -1,11 +1,15 @@
-# evmone
-
+# evmone host and debugger
 [![ethereum badge]][ethereum]
 [![readme style standard badge]][standard readme]
 [![codecov badge]][codecov]
 [![circleci badge]][circleci]
 [![appveyor badge]][appveyor]
 [![license badge]][Apache License, Version 2.0]
+
+This fork of evmone adds debugging information and impliments a host
+that connects to an existing ethereum compatible node via RPC calls.
+The call tree with along with the exact line on the contract where
+a error occurs.
 
 > Fast Ethereum Virtual Machine implementation
 
